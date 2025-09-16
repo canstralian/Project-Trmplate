@@ -1,0 +1,14 @@
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
+requests>=2.25.0
+matplotlib>=3.5.0
+
+# Optional dependencies for advanced features
+# tensorflow>=2.8.0  # For LSTM neural network models
+# yfinance>=0.1.70   # For Yahoo Finance data
+# seaborn>=0.11.0    # For advanced plotting
+# ta>=0.10.0         # For additional technical indicators
+# python-binance>=1.0.15  # For Binance API
+# ccxt>=2.0.0        # For multiple exchange APIs
+# plotly>=5.0.0      # For interactive plots
