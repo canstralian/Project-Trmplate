@@ -1,52 +1,51 @@
-
 # This file defines the project's metadata, dependencies, and tool configurations.
 # It uses Poetry for dependency management, which is robust for enterprise projects.
 
 [tool.poetry]
 name = "your-project-name"
 version = "0.1.0"
-description = "A brief description of what this project does."
+description = "An enterprise-grade trading bot with RFA and an ML Prediction Engine."
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 packages = [{include = "your_project_name", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-# Example dependencies for a web service
-fastapi = "^0.103.1"
-uvicorn = {extras = ["standard"], version = "^0.23.2"}
-pydantic = "^2.4.2"
-requests = "^2.31.0"
+python = "^3.13"
+# Main application dependencies
+flask = "^3.0.0"
+gunicorn = "^23.0.0"
+
+# ML Dependencies
+torch = "^2.1.0"
+numpy = "^2.3.0"
+pandas = "^2.1.0"
+scikit-learn = "^1.3.0"
+redis = "^6.4.0"  # Replacement for archived aioredis; supports async operations
 
 [tool.poetry.group.dev.dependencies]
 # Dependencies for development and testing
-pytest = "^7.4.2"
-httpx = "^0.25.0" # For testing FastAPI endpoints
-black = "^23.9.1"
-flake8 = "^6.1.0"
-isort = "^5.12.0"
-pre-commit = "^3.5.0"
+pytest = "^8.4.0"
+black = "^25.1.0"
+flake8 = "^7.3.0"
+isort = "^6.0.0"
+pre-commit = "^4.3.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 # --- Tool Configurations ---
 
 [tool.black]
-# Configuration for the Black code formatter
 line-length = 88
-target-version = ['py310']
+target-version = ['py313']
 
 [tool.isort]
-# Configuration for isort import sorter
 profile = "black"
 
 [tool.pytest.ini_options]
-# Configuration for pytest
-minversion = "6.0"
+minversion = "8.0"
 addopts = "-ra -q"
 testpaths = [
-    "tests/unit",
-    "tests/integration",
+    "tests",
 ]
